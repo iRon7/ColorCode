@@ -9,7 +9,7 @@ This class colors the code provided in a expression string or script block.
 ```
 
 ```PowerShell
-[ColorCode]{<expression>}
+[ColorCode]{<Expression>}
 ```
 
 ## Examples
@@ -19,7 +19,11 @@ This class colors the code provided in a expression string or script block.
 Color an assignment expression
 
 ```PowerShell
-$Code = '$Object = [PSCustomObject]@{ id = "Foo"; code = { Write-Host "Bar" } }'
+$Code = {$Object = [PSCustomObject]@{
+    id     = 1001
+    json   = 'Hello World' | ConvertTo-Json -depth 9
+    tags   = @('MyTag')
+}}
 [ColorCode]$Code
 ```
 
